@@ -47,6 +47,8 @@ docker build -t svfreitas/apache:1.0 <directory Dockerfile>
 
 docker build -t svfreitas/apache:1.0 .
 
+docker build -t svfreitas/apache:1.0 - < <nome do arquivo dockerfile>
+
 
 
 
