@@ -1,1 +1,52 @@
-teste
+/etc/init.d/docker start|stop
+
+docker ps
+
+docker images
+
+docker run -it ubuntu:14.10 /bin/bash
+-i -> interativo
+-t -> aloca um tty
+
+Para sair sem derrubar a sessão CTRL+p CTRL+q
+
+Para voltar para a sessão.
+docker attach CONTAINER_ID
+
+docker run -it -p 8080:80 ubuntu:14.10 /bin/bash
+mapeia a porta 80 do container para a 8080 da máquina fisica
+
+
+docker diff CONTAINER_ID
+Mostra as alterações que ocorreram no container desde que a imagem foi instalada nele.
+Se o container for fechado perde as alterações, é necessário criar um commit em uma nova imagem.
+Exemplo, container baseado no ubuntu que teve o nginx instalado:
+docker commit CONTAINER_ID svfreitas/nginx-ubuntu:1.0
+
+
+docker exec CONTAINER_ID ps -ef
+Executa um comando diretamente no container
+
+
+docker inspect CONTAINER_ID 
+Detalhes do container, sar grep para filtrar o que for de interesse
+
+docker stats CONTAINER_ID 
+
+docker start/stop CONTAINER_ID , stop nao apaga o container
+
+docker rm CONTAINER_ID , em execução nao pode.. utilizar -f se quiser forçar
+
+docker rmi IMAGE_ID, se tiver container utilizando nao deixa, -f forca e derreba todos os containers
+
+
+docker -run -it --name web2 --link <nome do container em execução>:web1 ubuntu:14.10 
+Faz os containers se falarem atraves do DNS web1 e web2
+
+docker build -t svfreitas/apache:1.0 <directory Dockerfile>
+
+docker build -t svfreitas/apache:1.0 .
+
+
+
+
