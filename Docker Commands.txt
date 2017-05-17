@@ -4,9 +4,10 @@ docker ps
 
 docker images
 
-docker run -it ubuntu:14.10 /bin/bash
+docker run -itd ubuntu:14.10 /bin/bash
 -i -> interativo
 -t -> aloca um tty
+-d -> realiza o detach da sessao
 
 Para sair sem derrubar a sessão CTRL+p CTRL+q
 
@@ -15,6 +16,7 @@ docker attach CONTAINER_ID
 
 docker run -it -p 8080:80 ubuntu:14.10 /bin/bash
 mapeia a porta 80 do container para a 8080 da máquina fisica
+
 
 
 docker diff CONTAINER_ID
