@@ -2,4 +2,5 @@ FROM ubuntu:14.04
 MAINTAINER svfreitas@gmail.com
 RUN apt-get update && apt-get install -y apache2 && apt-get clean 
 #CMD /etc/init.d/apache2 start && /bin/bash
-ENTRYPOINT ["/etc/init.d/apache2 start"]
+CMD ["-D", "FOREGROUND"]
+ENTRYPOINT ["apachectl"]
